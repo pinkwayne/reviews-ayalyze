@@ -59,51 +59,59 @@
             </form>
         </div>
         <div><br></div>
-        <div class="text" id="resultArea"></div>
+        <div class="text" id="resultArea">
+
+        </div>
     </div>
     <script>
         var tabs=
             "<ul class='nav nav-tabs'>"+
-                "<li class='active'><a href='#panel-rate' data-toggle='tab'>Rating</a></li>"+
-                "<li><a href='#panel-reviews' data-toggle='tab'>Reviews</a></li>"+
+            "<li class='active'><a href='#panel-rate' data-toggle='tab'>Rating</a></li>"+
+            "<li><a href='#panel-reviews' data-toggle='tab'>Reviews</a></li>"+
             "</ul>"+
             "<div class='tab-content'>"+
-                "<div class='tab-pane fade in active' id='panel-rate'></div>"+
-                "<div class='tab-pane fade' id='panel-reviews'>第二部分内容.</div>"+
+            "<div class='tab-pane fade in active' id='panel-rate' style='background-color: ghostwhite; height: 340px'></div>"+
+            "<div class='tab-pane fade' id='panel-reviews'>第二部分内容.</div>"+
             "</div>";
         $("#resultArea").html(tabs);
-        var table=
-            "<table class='' border='1' align='left'>"+
-                "<tr><td colspan='5'>tittle</td><tr>"+
-                "<tr>" +
-                    "<td rowspan='15'><a href='#' class='thumbnail thumbnail-sm'><img id='thumb' src='T1WK.jpg' alt='缩略图'></a></td>"+
-                    "<td rowspan='15' width='300px'></td><td colspan='3'></td>" +
-                "</tr>"+
-                "<tr><td>物流</td><td rowspan='10' width='20px'></td><td id='1'></td></tr>"+
-                "<tr><td>价格</td><td id='2'></td></tr>"+
-                "<tr><td>服务</td><td id='3'></td></tr>"+
-                "<tr><td>发货</td><td id='4'></td></tr>"+
-                "<tr><td>包装</td><td id='5'></td></tr>"+
-                "<tr><td>质量</td><td id='6'></td></tr>"+
-                "<tr><td>款式</td><td id='7'></td></tr>"+
-                "<tr><td>尺寸</td><td id='8'></td></tr>"+
-                "<tr><td>做工</td><td id='9'></td></tr>"+
-                "<tr><td>面料</td><td id='10'></td></tr>"+
-                "<tr><td rowspan='' colspan='3'></td></tr>"+
-            "</table>";
-        $("#panel-rate").html("<br>"+table);
+        var tab_content=
+            "<br><div id='thumb-div' style=' padding-left: 10px'><a href='#' class='thumbnail thumbnail-sm'><img id='thumb' src='T1WK.jpg' alt='缩略图'></a></div>"+
+            "<div id='rating-bar-div'>"+
+                "<div style='float: left;'>"+
+                    "<div class='rating-label'>物流：</div>"+
+                    "<div class='rating-label'>价格：</div>"+
+                    "<div class='rating-label'>服务：</div>"+
+                    "<div class='rating-label'>发货：</div>"+
+                    "<div class='rating-label'>包装：</div>"+
+                    "<div class='rating-label'>质量：</div>"+
+                    "<div class='rating-label'>款式：</div>"+
+                    "<div class='rating-label'>尺寸：</div>"+
+                    "<div class='rating-label'>做工：</div>"+
+                    "<div class='rating-label'>面料：</div>"+
+                "</div>"+
+                "<div style='float: right;padding-right: 10px'>"+
+                    "<div id='rate_1' class='rating-label'>xxx</div>"+
+                    "<div id='rate_2' class='rating-label'>xxx</div>"+
+                    "<div id='rate_3' class='rating-label'>xxx</div>"+
+                    "<div id='rate_4' class='rating-label'>xxx</div>"+
+                    "<div id='rate_5' class='rating-label'>xxx</div>"+
+                    "<div id='rate_6' class='rating-label'>xxx</div>"+
+                    "<div id='rate_7' class='rating-label'>xxx</div>"+
+                    "<div id='rate_8' class='rating-label'>xxx</div>"+
+                    "<div id='rate_9' class='rating-label'>xxx</div>"+
+                    "<div id='rate_10' class=rating-label'>xxx</div>"+
+                "</div>"+
+                "<div id='bars-area' style='float: right;padding-top: 3px'></div>"+
+            "</div>";
+        $("#panel-rate").html(tab_content);
+        var bars="";
         for(var i=1;i<11;i++){
-            $("#"+i).html(
-                "<div id='progress' class='progress progress-striped rating-bar'>"+
-                    "<div id='bar_"+i+"' class='progress-bar' role='progressbar' aria-valuenow='60' aria-valuemin='0' aria-valuemax='100' style=''>"+
-                        "<span>...</span>"+
-                    "</div>"+
-                "</div>");
-            var bar_style="warning";
-            $("#bar_"+i).attr({
-                "style":"width: 43.2569%;",
-                "class":"progress-bar progress-bar-"+bar_style
-            });}
+                bars=bars+
+                    "<div id='progress' class='progress progress-striped rating-bar'>"+
+                        "<div id='bar_"+i+"' class='progress-bar progress-bar-success' role='progressbar' aria-valuenow='60' aria-valuemin='0' aria-valuemax='100' style='width: 43.2569%;'></div>"+
+                    "</div>";
+            }
+        $("#bars-area").html(bars);
     </script>
     <nav class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
         <div class="text-center" >

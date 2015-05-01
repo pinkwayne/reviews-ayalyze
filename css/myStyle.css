@@ -43,10 +43,25 @@ body {
 .rating-bar{
     width:400px;
     height:15px;
-    margin:8px;
+    margin-bottom:14px;
+    margin-top:14px;
+    margin-right:5px;
     border:0;
-    padding:0;
+    border-Radius:0;
+}
+.rating-label{
+    height:15px;
+    margin-bottom:14px;
+    margin-top:14px;
+    border:0;
+    text-align: center;
 }
 .thumbnail-sm{
-    width:400px;
+    width:300px;
+}
+#thumb-div{
+    float:left;
+}
+#rating-bar-div{
+    float:right;
 }
